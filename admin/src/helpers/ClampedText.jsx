@@ -14,6 +14,8 @@ const ClampedText = ({ text, lines = 3, lineHeight, textSx, textAttr }) => {
     ...textSx,
   };
 
+  if (!text) return;
+
   return (
     <Typography style={clampStyle} {...textAttr}>
       {text}

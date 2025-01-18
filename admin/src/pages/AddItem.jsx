@@ -22,6 +22,7 @@ import defaultImg from "../assets/default.jfif";
 import axios from "axios";
 import { backend_url } from "../App";
 import { useTabContext } from "../context/tabContext";
+import toast from "react-hot-toast";
 
 const AddItem = () => {
   const initialState = {
@@ -150,6 +151,7 @@ const AddItem = () => {
         setImage4(false);
         setSentMessage("");
         await fetchList();
+        toast.success("Item successfully added ");
       }
     } catch (error) {
       console.log(error);

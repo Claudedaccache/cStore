@@ -44,7 +44,8 @@ const OrderCart = (order) => {
         <Stack gap={1}>
           {cartItems.map(({ productId, quantity, size }, index) => {
             const item = items.find((item) => item._id === productId);
-            if (!item) return null;
+            if (!item) return;
+
             return (
               <Stack
                 direction="row"
@@ -66,9 +67,10 @@ const OrderCart = (order) => {
             <Typography>
               Name:
               <Typography component="span" ml="0.3rem" color="text.secondary">
-                {user.name} {user.lastname}
+                {user?.name} {user?.lastname} {user ? "" : "No name"}
               </Typography>
             </Typography>
+
             <Typography>
               Address:
               <Typography component="span" ml="0.3rem" color="text.secondary">

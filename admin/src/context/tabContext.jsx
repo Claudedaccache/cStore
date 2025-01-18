@@ -4,6 +4,7 @@ import { products } from "../assets/data";
 import { backend_url } from "../App";
 import axios from "axios";
 import { useEffect } from "react";
+import toast from "react-hot-toast";
 
 // Create the context
 const TabContext = createContext();
@@ -93,8 +94,11 @@ const TabProvider = ({ children, token, setToken }) => {
       );
 
       if (response.data.success) {
+        toast.success("Item removed ");
         await fetchList();
       } else {
+        toast.error(response.data.message);
+
         console.log(response.data.message);
       }
     } catch (error) {
