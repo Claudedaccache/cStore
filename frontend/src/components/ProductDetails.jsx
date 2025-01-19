@@ -26,8 +26,8 @@ const ProductDetails = ({ product }) => {
     soldedPrice,
     sizes,
     onSolde,
-    raking,
-    reviews,
+    raking = 4.8,
+    reviews = 128,
   } = product;
 
   const [selectedSize, setSelectedSize] = useState("");
@@ -88,16 +88,18 @@ const ProductDetails = ({ product }) => {
         </Stack>
 
         <Stack direction="row" alignItems="center" gap="0.5rem">
-          {raking && (
-            <Rating
-              name="half-rating-read"
-              defaultValue={raking}
-              precision={0.5}
-              readOnly
-              sx={{ lineHeight: "initial" }}
-            />
-          )}
-          {reviews && <Typography>({reviews})</Typography>}
+          {/* {raking && ( */}
+          <Rating
+            name="half-rating-read"
+            defaultValue={raking}
+            precision={0.5}
+            readOnly
+            sx={{ lineHeight: "initial" }}
+          />
+          {/* )} */}
+          {/* {reviews &&  */}
+          <Typography>({reviews})</Typography>
+          {/* } */}
         </Stack>
       </Stack>
       <Typography

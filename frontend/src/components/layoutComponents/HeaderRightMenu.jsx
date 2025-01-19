@@ -94,52 +94,66 @@ const HeaderRightMenu = () => {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <Link to={"/profile"}>
-          <IconButton
-            disableRipple={true}
-            size="large"
-            aria-label="account of current user"
-            aria-controls="primary-search-account-menu"
-            aria-haspopup="true"
-          >
-            <AccountCircle /> <Typography ml={1}>My Profile</Typography>
-          </IconButton>
-        </Link>
+      <MenuItem
+        onClick={() => {
+          navigate("/profile");
+          handleMobileMenuClose();
+        }}
+      >
+        <IconButton
+          disableRipple={true}
+          size="large"
+          aria-label="account of current user"
+          aria-controls="primary-search-account-menu"
+          aria-haspopup="true"
+        >
+          <AccountCircle /> <Typography ml={1}>My Profile</Typography>
+        </IconButton>
       </MenuItem>
-      <MenuItem>
-        <Link to={"/place-order"}>
-          <IconButton
-            disableRipple={true}
-            size="large"
-            aria-label={`show ${totalCartQuantity} new mails`}
+      <MenuItem
+        onClick={() => {
+          navigate("/place-order");
+          handleMobileMenuClose();
+        }}
+      >
+        <IconButton
+          disableRipple={true}
+          size="large"
+          aria-label={`show ${totalCartQuantity} new mails`}
+        >
+          <Badge
+            badgeContent={totalCartQuantity}
+            color="error"
+            showZero
+            max={999}
           >
-            <Badge
-              badgeContent={totalCartQuantity}
-              color="error"
-              showZero
-              max={999}
-            >
-              <ShoppingCartCheckoutSharpIcon />
-            </Badge>
-            <Typography ml={1}>Cart</Typography>
-          </IconButton>
-        </Link>
+            <ShoppingCartCheckoutSharpIcon />
+          </Badge>
+          <Typography ml={1}>Cart</Typography>
+        </IconButton>
       </MenuItem>
-      <MenuItem>
-        <Link to={"/orders"}>
-          <IconButton
-            disableRipple={true}
-            size="large"
-            aria-label="show 4 new mails"
-          >
-            <LocalMallSharpIcon />
+      <MenuItem
+        onClick={() => {
+          navigate("/orders");
+          handleMobileMenuClose();
+        }}
+      >
+        <IconButton
+          disableRipple={true}
+          size="large"
+          aria-label="show 4 new mails"
+        >
+          <LocalMallSharpIcon />
 
-            <Typography ml={1}>Orders</Typography>
-          </IconButton>
-        </Link>
+          <Typography ml={1}>Orders</Typography>
+        </IconButton>
       </MenuItem>
-      <MenuItem onClick={() => handleLogout()}>
+      <MenuItem
+        onClick={() => {
+          handleLogout();
+          handleMobileMenuClose();
+        }}
+      >
         <IconButton
           disableRipple={true}
           size="large"

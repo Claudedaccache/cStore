@@ -19,7 +19,7 @@ const LazyImage = ({
   }, [src]);
 
   return (
-    <Box>
+    <Box width={width} height={height}>
       {!loaded && (
         <Skeleton variant="rectangular" width={width} height={height} />
       )}
